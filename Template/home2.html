@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<link rel="stylesheet" href="{% static 'CSS/home.css' %}">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <div class="banner" style="background-image: url({% static 'IMAGES/image1.jpg' %});"></div>
+                    <div class="carousel-caption">
+                        <h2 class="animated slideInDown" style="animation-delay: 1s">SAVE  <span>ME</span></h2>
+                        <h3 class="animated fadeInUp" style="animation-delay: 2s">"The Earth is a fine plapyce and worth fighting for."</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="banner" style="background-image: url({% static 'IMAGES/image2.jpg' %});"></div>
+                    <div class="carousel-caption">
+                        <h3 style="color:white;" class="animated zoomIn" style="animation-delay: 1s">“The world will not be destroyed by those who do evil, but by those who watch them without doing anything.” </h3>
+                    </div>
+
+                </div>
+                <div class="item">
+                    <div class="banner" style="background-image: url({% static 'IMAGES/image3.jpg' %});"></div>
+					<div class="carousel-caption">
+                        <h3 style="color:BLACK;" class="animated zoomIn" style="animation-delay: 1s">"While the problem can sometimes seem overwhelming, we can turn things around -- but we must move beyond climate talk to climate action."  </h3>
+                    </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+    <section class="intro">
+        <row><div class = "image">
+            <div class="col-lg-6 col-sm-12 left">
+	                      <div class="banner" style="background-image: url({% static 'IMAGES/co2.png' %});"></div>
+
+      </div></div>
+    <div class = "climate">
+      <div class="col-lg-6 col-sm-12 right">
+			<br><br><br><br><br><br><br><br>
+			<figure class="text-center">
+			<blockquote class="blockquote">
+			<h2><i>
+					<span>Climate change</span> is affecting every country on every continent.
+					It is disrupting national economies and affecting lives.
+					Weather patterns are changing, sea levels are rising,
+					and weather events are becoming more extreme.</i></h2>
+					<span class="glyphicon glyphicon-globe" aria-hidden="true">	</p>
+				</span>
+
+			</blockquote>
+			</figure>
+
+      </div>
+    </div>
+    </row>
+  </section>
+  <section class="about">
+  </section>
+{% endblock %}

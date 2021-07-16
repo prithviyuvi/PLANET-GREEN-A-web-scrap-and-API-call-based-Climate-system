@@ -1,0 +1,91 @@
+{% extends 'bforeloginbase.html' %}
+{% load static %}
+{% block content %}
+<br><br><br><br><br><br><br><br>
+<script src="{% static 'js/login.js' %}"></script>
+<link rel="stylesheet" href="{% static 'CSS/login.css' %}">
+	<div class="login-modal-div" style="display: block;">
+		<div class="modal-content">
+			<div class="close-div">
+				<span class="close"><a href="index.html">×</a></span>
+			</div>
+			<div class="white-bg center modal-header">
+				<div class="login-register-div">
+				{% if messages %}
+    			{% for message in messages %}
+					<div class="alert alert-info" role="alert">
+				{{ message }}
+					</div>
+				{% endfor %}
+				{% endif %}
+					<input id="tab1" type="radio" name="tabs" checked="">
+					<label class="tab-label" for="tab1">Sign In</label>      
+					<input id="tab2" type="radio" name="tabs">
+					<label class="tab-label" for="tab2">Sign Up</label>
+					
+					<section id="content1">
+						<form method="POST" class="login-form" id="Login">
+							{% csrf_token %}
+							<input type="hidden" name="reqType" value="Login">
+							<div class="modal-form-group">
+								<i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+								<label for="username"><b>USERNAME</b></label>
+								<input name="username" id="luser" required="required" type="text" class="modal-form-input" placeholder="Enter Your Username..">
+							</div>
+							<div class="modal-form-group">
+								<i class="fa fa-lock"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+								<label for="password"><b>PASSWORD</b></label>
+								<input name="password" id="password" type="password" required="required" class="modal-form-input" placeholder="Enter Your Password..">
+							</div>
+							<div class="modal-form-group left">
+								<a href="forgetpassword"><label for="forget password">Forgot Password?</label></a>
+							</div>
+							<input class="btn btn-primary btn-block" type="submit" id='login' name="sign in" value="LOGIN">
+						</form>
+					</section>
+
+					<section id="content2">
+						<form method="POST" action='register' class="login-form" id="Register">
+							{% csrf_token %}
+							<input type="hidden" name="reqType" value="Register">
+
+							<div class="modal-form-group">
+								<i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+								<label for="firstname"><b>NAME</b></label>
+								<input name="firstname" id="txt" type="text" required="required" class="modal-form-input" onkeyup = "Validate(this)" placeholder="Enter your name" required">
+							</div>
+
+							<div class="modal-form-group">
+								<i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+								<label for="username"><b>USERNAME</b></label>
+								<input name="username" id="txt" type="text" required="required" class="modal-form-input" placeholder="minimum 6 letters" required">
+							</div>
+
+							<div class="modal-form-group">
+								<i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+								<label for="e-mail"><b>E-MAIL</b></label>
+								<input name="email" id="email" type="email" required="required" class="modal-form-input" onchange="email_validate(this.value);" placeholder="Enter Your E-mail..">
+							                        <div class="status" id="status"></div>
+
+							</div>
+							<div class="modal-form-group">
+								<i class="fa fa-lock"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+								<label for="password"><b>PASSWORD</b></label>
+								<input name="password1" id="pass1" type="password" required="required" class="modal-form-input" minlength="8" maxlength="16" placeholder="Enter Your Password.." pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+							</div>
+							<div class="modal-form-group">
+								<i class="fa fa-lock"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+								<label for="re-pass"><b>CONFIRM PASSWORD</b></label>
+								<input name="password2" id="pass2" type="password" required="required" class="modal-form-input" minlength="8" maxlength="16" onkeyup="checkPass(); return false;"  placeholder="Re-enter Your Password..">
+							                        <span id="confirmMessage" class="confirmMessage"></span>
+
+							</div>
+							<input class="btn btn-primary btn-block" type="submit" id='sign up' name="create" value="SIGN UP">
+						</form>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+<br><br><br><br><br><br>
+{% endblock %}

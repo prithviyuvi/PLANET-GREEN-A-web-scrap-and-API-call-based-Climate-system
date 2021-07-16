@@ -1,0 +1,136 @@
+
+.login-modal-div .modal-content{
+    background-color: #eff1f3;
+    margin: auto;
+    padding-top: 20px;
+    border: 1px solid #888;
+    width: 350px;
+    border-radius: 5px;
+	left:2%;
+}
+.login-modal-div .white-bg{
+    background-color: transparent;
+}
+
+.login-modal-div input[type=text],
+  .login-modal-div input[type=email],
+  .login-modal-div input[type=password],
+  .login-modal-div input[type=number]{
+    border: 1px solid #C2C7D0;
+    border-top-color: rgb(194, 199, 208);
+    border-right-color: rgb(194, 199, 208);
+    border-bottom-color: rgb(194, 199, 208);
+    border-left-color: rgb(194, 199, 208);
+    border-radius: 5px;
+    box-shadow: inset 0 1px 2px rgba(151,159,175,0.1),inset 0 1px 15px rgba(151,159,175,0.05);
+    box-sizing: border-box;
+    color: #39424e;
+    display: inline-block;
+    line-height: 1.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 7px 10px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    width: 100%;
+}
+
+.login-modal-div .modal-header section{
+    display: none;
+    padding: 20px ;
+    border-bottom: none;
+}
+.login-modal-div .modal-header input[type=radio]{
+    display: none;
+}
+.login-modal-div .modal-header label.tab-label{
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #888;
+    border: 1px solid transparent;
+    width: 50%;
+    padding-bottom: 12px;
+    font-size: 20px;
+    border-bottom-width: 4px;
+    background-color: #e9ebee;
+}
+.login-modal-div .modal-header label.tab-label:first-of-type{
+    float: left;
+}
+.login-modal-div .modal-header label.tab-label:before{
+    font-weight: normal;
+    margin-right: 10px;
+}
+.login-modal-div .modal-header label:hover{
+    color: #888;
+    cursor: pointer;
+}
+.login-modal-div .modal-header input:checked + label.tab-label{
+    color: #000;
+    background-color: #fff;
+}
+.login-modal-div .modal-header #tab1:checked ~ #content1,
+  .login-modal-div .modal-header #tab2:checked ~ #content2{
+    display: block;
+}
+.login-modal-div{
+    padding-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

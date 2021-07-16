@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<script src="{% static 'js/login.js' %}"></script>
+<link rel="stylesheet" href="{% static 'CSS/login.css' %}">
+<body  style="background-image: url() ; background-size:100% ;">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" href="images/favicon.ico">
+</head>
+
+<style>
+
+#announcement-panel {
+	padding-top: 90px;
+	padding-bottom: 80px;
+}
+
+#announcement-header, #announcement-subheader {
+	color: white;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 1px;
+}
+
+#announcement-header {
+	font-size: 4em;
+}
+
+#announcement-subheader {
+	font-size: 2em;
+}
+
+#form, #results {
+	padding: 20px;
+}
+
+#announcement-panel {
+	background-image: url("{% static 'images/profile.jpg' %}");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+</style>
+<BR><BR><BR><BR>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" id="announcement-panel">
+				<h1 id="announcement-header">YOUR PROFILE</h1>
+				<h3 id="announcement-subheader">Think about bringing some changes to the planet while you're changing your profile.</h3>
+			</div>
+		</div>
+<BR><BR>
+		<div class="login-modal-div" style="display: block;">
+		<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+    </div>
+
+  <div class="col-sm-4" style="background-color:LIGHTGREY;">
+
+			<div class="white-bg center modal-header">
+				<div class="login-register-div">
+							{% if messages %}
+    							{% for message in messages %}
+									<div class="alert alert-info" role="alert">
+										{{ message }}
+									</div>
+								{% endfor %}
+							{% endif %}
+							<input id="tab1" type="radio" name="tabs" checked="">
+							<section id="content1">
+								<form method='POST' enctype="multipart/form-data">
+    								{% csrf_token %}
+    								{{u_form|crispy}}<BR>
+    								<button class="btn btn-primary btn-block" type='submit'>Update</button>
+								</form>
+				 		</section></div></div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div></div>
+<BR><BR>
+		<CENTER><H1>DO YOU KNOW???</H1></CENTER>
+<CENTER> <H3>More than 1 million species are at risk of extinction by climate change</H3></CENTER>
+<BR><BR>
+{% endblock %}

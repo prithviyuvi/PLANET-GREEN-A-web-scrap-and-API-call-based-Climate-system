@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+<!-- these will go inside body in base.html -->
+{% load static %}
+{% block content %}
+<head>
+	<title>Carbon Footprint Calculator</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" href="images/favicon.ico">
+</head>
+<style>#announcement-panel {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+#announcement-header, #announcement-subheader {
+	color: white;
+	background-color: rgba(38, 77, 0, 0.7);
+	padding: 5px;
+}
+
+#announcement-header {
+	font-size: 4em;
+}
+
+#announcement-subheader {
+	font-size: 2em;
+}
+
+#form, #results {
+	padding: 40px;
+}
+
+#announcement-panel {
+	background-image: url("{% static 'images/green-leaves.jpg' %}");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#home-energy-label, .fa-home {
+	color: #FF8C00;
+}
+
+#travel-label, .fa-globe {
+	color: #008B8B;
+}
+
+#waste-label, .fa-recycle {
+	color: #228B22;
+}
+
+.progress-bar {
+	font-size: 1.2em;
+}
+
+.score-info {
+	padding: 10px;
+	margin: 0;
+}</style>
+<BR><BR><BR><BR>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" id="announcement-panel">
+				<h1 id="announcement-header">What is your carbon footprint score?</h1>
+				<h3 id="announcement-subheader">Find out now with this simple calculator</h3>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				<div id="results" class="text-center">
+					<h1 id="score"></h1>
+					<br/><h1>{{total}}</h1>
+					<p class="lead">This number represents your carbon footprint score</p>
+					<br/>
+					<h5 class="bg-success score-info">30 or below is EXCELLENT</h5>
+					<h5 class="bg-info score-info">30 to 50 is GOOD</h5>
+					<h5 class="bg-warning score-info">50 to 60 is AVERAGE</h5>
+					<h5 class="bg-danger score-info">60 or below is BAD</h5>
+					<br/>
+					<br/>
+					<br/>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			</div>
+		</div>
+		<center><h1>Curious to know about carbon footprint?</h1></center>
+		<center><h3>Try searching for effects of carbon emissions and tips to reduce carbon emission...</h3></center><br><br><Br>
+	</div>
+{% endblock %}
+

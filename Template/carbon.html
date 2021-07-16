@@ -1,0 +1,407 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>swal("The simplest carbon dioxide removal is to plant a tree");</script>
+
+<style>#announcement-panel {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+#announcement-header, #announcement-subheader {
+	color: white;
+	background-color: rgba(38, 77, 0, 0.7);
+	padding: 5px;
+}
+
+#announcement-header {
+	font-size: 4em;
+}
+
+#announcement-subheader {
+	font-size: 2em;
+}
+
+#form, #results {
+	padding: 40px;
+}
+
+#announcement-panel {
+	background-image: url("{% static 'images/green-leaves.jpg' %}");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#home-energy-label, .fa-home {
+	color: #FF8C00;
+}
+
+#travel-label, .fa-globe {
+	color: #008B8B;
+}
+
+#waste-label, .fa-recycle {
+	color: #228B22;
+}
+
+.progress-bar {
+	font-size: 1.2em;
+}
+
+.score-info {
+	padding: 10px;
+	margin: 0;
+}
+</style>
+
+    <div class="banner" style="background-image: url({% static 'IMAGES/image1.jpg' %});"></div>
+	<BR><BR><BR><BR>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" id="announcement-panel">
+				<h1 id="announcement-header">What is your carbon footprint score?</h1>
+				<h3 id="announcement-subheader">Find out now with this simple calculator</h3>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				<div id="form">
+
+					<form action="carbonresult" method="post">
+						{% csrf_token %}
+						<h3 id="home-energy-label"><i class="fa fa-home" aria-hidden="true"></i> Home Energy</h3>
+<!---------- --------------------------------------------------------------------- -->
+						<div class="form-group">
+							<label>Members of House?</label>
+							<div class="radio" >
+								<label>
+									<input type="radio" name="memberofhouses" value=14 required>
+									live alone
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="memberofhouses" value=12>
+									1
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="memberofhouses" value=10>
+									2
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="memberofhouses" value=8>
+									3
+								</label>
+							</div>
+								<div class="radio">
+								<label>
+									<input type="radio" name="memberofhouses" value=6>
+									4
+								</label>
+							</div>
+								<div class="radio">
+								<label>
+									<input type="radio" name="memberofhouses" value=4>
+									5
+								</label>
+							</div>
+								<div class="radio">
+								<label>
+									<input type="radio" name="memberofhouses" value=2>
+									more than 5
+								</label>
+							</div>
+						</div>
+<!---------- --------------------------------------------------------------------- -->
+					<div class="form-group">
+							<label>Size of home?</label>
+							<div class="radio">
+								<label>
+									<input type="radio" name="sizeofhome" value=10 required>
+									Large house
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="sizeofhome" value=7>
+									Medium-sized house
+								</label>
+							</div>
+								<div class="radio">
+								<label>
+									<input type="radio" name="sizeofhome" value=4>
+									small house
+								</label>
+							</div>
+								<div class="radio">
+								<label>
+									<input type="radio" name="sizeofhome" value=2>
+									apartment
+								</label>
+							</div>
+						</div>
+<!---------- --------------------------------------------------------------------- -->
+
+						<div class="form-group">
+							<label>Food choices?</label>
+							<div class="radio">
+								<label>
+										<input type="radio" name="food" value=10 required>
+									Domestic meat on a daily basis
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="food" value=8>
+									Domestic meat a few times per week
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="food" value=4>
+									vegetarian
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="food" value=2>
+									vegan or only eat wild meat
+								</label>
+							</div>
+						</div>
+<!---------- --------------------------------------------------------------------- -->
+					<div class="form-group">
+							<label>How many household purchases you make each year?</label>
+							<div class="radio">
+								<label>
+									<input type="radio" name="household" value=10 required>
+									More than 7 new pieces of furniture, electronics, or other household gadgets per year,
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="household" value=8>
+									purchase between 5 and 7 items
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="household" value=6>
+									purchase between 3 and 5 items
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="household" value=4>
+									purchase less than 3
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="household" value=2>
+									purchase almost nothing or only secondhand items
+								</label>
+							</div>
+						</div>
+
+<!---------- --------------------------------------------------------------------- -->
+					<div class="form-group">
+							<label>Identify the amount of waste that you recycle?</label>
+							<div class="radio">
+								<label>
+									<input type="radio" name="garbage" value=50 required>
+									fill 4 garbage cans each week
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="garbage" value=40>
+									fill 3 garbage cans each week
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="garbage" value=30>
+									fill 2 garbage cans per week
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="garbage" value=20>
+									fill 1 garbage can per week
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="garbage" value=5>
+									 fill half of a garbage can or less per week
+								</label>
+							</div>
+						</div>
+<!---------- --------------------------------------------------------------------- -->
+					<h3 class="form-section-label" id="waste-label"><i class="fa fa-recycle" aria-hidden="true"></i> Waste</h3>
+					<div class="form-group">
+							<label>Choose the number of wastes you recycle?<BR>
+								(GLASS ,PLASTIC ,PAPER , ALUMINIUM, STEEL, FOOD WASTE)</label>
+							<div class="radio">
+								<label>
+									<input type="radio" name="recycle" value=-4 required>
+									1
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="recycle" value=-8>
+									2
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="recycle" value=-12>
+									3
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="recycle" value=-16>
+									4
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="recycle" value=-20>
+									5
+								</label>
+							</div>
+						    <div class="radio">
+								<label>
+									<input type="radio" name="recycle" value=-24>
+									6
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="recycle" value=24>
+									No recycle
+								</label>
+							</div>
+						</div>
+
+<!---------- --------------------------------------------------------------------- -->
+
+					<h3 class="form-section-label" id="travel-label"><i class="fa fa-globe" aria-hidden="true"></i> Travel</h3>
+						<div class="form-group">
+							<label>Car travel distance?</label>
+							<div class="radio">
+								<label>
+									<input type="radio" name="car" value=12 required>
+									15,000 miles per year
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="car" value=10>
+									10,000 to 15,000 miles per year
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="car" value=6>
+									1,000 to 10,000 miles per year
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="car" value=4>
+									1,000 miles per year
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="car" value=0>
+									Don't have car
+								</label>
+							</div>
+						</div>
+
+					<div class="form-group">
+							<label>Number of flights taken in the past year?</label>
+							<div class="radio">
+								<label>
+									<input type="radio" name="flight" value=2 required>
+									 Travel within your state
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="flight" value=6>
+									Travel further country
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="flight" value=20>
+									Travel to another continent
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="flight" value=0>
+									No Travel
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>public transportation</label>
+							<div class="radio">
+								<label>
+									<input type="radio" name="public" value=12 required>
+									20,000 miles per year
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="public" value=10>
+									15,000 to 20,000 miles per year
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="public" value=6>
+									10,000 to 15,000 miles per year
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="public" value=4>
+									1,000 to 10,000 miles per year
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="public" value=2>
+									1,000 miles per year
+								</label>
+							</div>
+						</div>
+						<br/>
+					<button id="calculate-btn" type="submit" class="btn btn-success btn-lg btn-block" >calculate</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			</div>
+		</div>
+	</div>
+{% endblock %}

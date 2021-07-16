@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <br><br><br><br><br><br>
+<body  style="background-image: url({% static 'IMAGES/maxresdefault.jpg' %}) ; background-size:100% ;">
+
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4"><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+    <form action="" method="POST">
+        {% csrf_token %}
+    <input type="submit" class="btn btn-success btn-lg" value="JOIN THE SAPPLING COMMUNITY">
+  </form>
+
+  </div>
+</div>
+
+
+{% endblock %}
